@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "MP4-to-GIF",
+  "version": "1.1",
+  "description": "半自動處理檔案變成GIF。",
+  "permissions": ["storage"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "點擊開關擴充功能"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://ezgif.com/video-to-gif/*"],
+      "js": ["js/script-for-video-to-gif.js"]
+    },
+    {
+      "matches": ["https://ezgif.com/resize/*"],
+      "js": ["js/script-for-resize.js"]
+    }
+  ]
+}
